@@ -1,0 +1,207 @@
+<nav class="navbar navbar-dark bg-faded">
+  <a class="navbar-brand" href="#"><h2>Devops Dashboard Configuration</h2></a>
+</nav>
+<div class="container-fluid clearfix" id="information">
+  <div class="container-nav-justified">
+      <div class="alert alert-success" role="alert">
+    <strong>Select configuration</strong>  in boxes below and trigger 
+  </div>
+  </div>
+  <!--My configuration form-->
+  <!--bamboo-->
+  <div id="bamboo-section">
+  <span class="text-center"><h1>Bamboo</h1></span>
+  
+  <div class="container-fluid">
+     <!--bamboo URL-->
+      <div class="form-group row">
+        <label for="example-url-input" class="col-2 col-form-label">Bamboo URL</label>
+        <div class="col-10">
+          <input class="form-control" type="text"   id="example-url-input" [(ngModel)]="bambooTrigger.bambooServerUrl">
+        </div>
+      </div>
+      <!--bamboo username-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label"> Userneme</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="your babmoo username" id="example-text-input" [(ngModel)]="bambooTrigger.bambooUsername">
+        </div>
+      </div>
+      <!--bamboo password-->
+      <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Password</label>
+        <div class="col-10">
+          <input class="form-control" type="password" value="" id="example-password-input"  [(ngModel)]="bambooTrigger.bambooPassword">
+        </div>
+      </div>
+      </div>
+  </div>
+    <!--bamboo ends here-->
+
+    <!--bamboo  project-->
+  <div id="bamboo-section">
+  <h1>Bamboo Project</h1>
+  <div class="container-fluid">
+      
+      <!--bamboo project name-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label"> Project Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="project name" id="example-text-input" [(ngModel)]="bambooTrigger.bambooProjectName">
+        </div>
+      </div>
+      <!--bamboo project key-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label" > Project KEY</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bambooProjectKey">
+        </div>
+      </div>
+      <div class="alert alert-info" role="alert">
+        Give a <strong>unique Project KEY</strong> which previously not present in Bamboo project list.
+      </div>
+  </div>
+    <!--bamboo project ends here-->
+
+
+  
+
+<!--bamboo  Plan-->
+  <div id="bamboo-section">
+  <h1>Bamboo Plan</h1>
+  <div class="container-fluid">
+      
+<!--bamboo plan name-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Plan Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bambooPlanName">
+        </div>
+      </div>
+      <!--bamboo plan key-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label" > Plan KEY</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input" [(ngModel)]="bambooTrigger.bambooPlanKey">
+        </div>
+      </div>
+      <div class="alert alert-info" role="alert">
+        Give a <strong>unique Plan KEY under a particular project</strong>.
+      </div>
+  </div>
+  </div>
+<!--bamboo Plan ends here-->
+
+<!--bamboo Job name-->
+  <div id="bamboo-section">
+  <h1>Bamboo Job</h1>
+  <div class="container-fluid">
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Job Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bambooJobName">
+        </div>
+      </div>
+      <!--bamboo plan key-->
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label" > Job KEY</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input" [(ngModel)]="bambooTrigger.bambooJobKey">
+        </div>
+      </div>
+      <div class="alert alert-info" role="alert">
+        Give a <strong>unique Job KEY under a Plan KEY in a particular project</strong>.
+      </div>
+  </div>
+  </div>
+<!--bamboo Job ends here-->
+  
+  
+  </div>
+<!--bit bucket starts here-->
+  <div id="bitbucket-section">
+    <span class="text-center"><h1>Bitbucket</h1></span>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Project Key</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bitbucketProjectKey">
+        </div>
+      </div>
+
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Repository Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bitbucketRepoName">
+        </div>
+      </div>
+
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Repository slug</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bitbucketRepoSlug">
+        </div>
+      </div>
+
+      <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Branch</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.bitbucketRepoBranch">
+        </div>
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        e.g: If your repository URL is <strong>http://devopsadmin@52.172.54.218:8087/scm/sb/svntesthellospring.git</strong> "svntesthellospring" is repo slug.
+        Generel format of bitbucket URL is <strong>http://URL/scm/repository KEY in lower case/repository slug.git</strong>
+      </div>
+
+  </div>
+<!--bit bucket ends here-->
+
+<!--docker deployment-->
+  <div id="docker-section">
+    <span class="text-center"><h1>Docker Deployment</h1></span>
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Image Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.dockerImageName">
+        </div>
+      </div>
+
+    <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Container Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.dockerContainerName">
+        </div>
+      </div>
+
+    <div class="form-group row">
+      <label for="example-text-input" class="col-6 col-form-label">Host Port</label>
+      <label for="example-text-input" class="col-6 col-form-label">Container Port</label>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-6">
+            <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.dockerHostPort">
+          </div>
+        <div class="col-6">
+          <input class="form-control" type="text"  id="example-text-input"  [(ngModel)]="bambooTrigger.dockerContainerPort">
+        </div>
+      </div>
+
+
+
+  </div>
+<!--docker deployment ends here-->
+  <!--button-->
+  <div class="float-right">
+    <!-- Indicates a successful or positive action -->
+      <button type="button" class="btn btn-success" (click)="f()">Trigger the Process</button>
+    <!--button ends here-->
+  </div>
+  <!--Form ends here-->
+
+
+</div>
+
+
+
