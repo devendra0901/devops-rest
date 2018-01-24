@@ -6,32 +6,72 @@ package org.cgi.devops.devopsrest.model;
  *  */
 
 public class BambooSpecs {
-	
+
 	private String bambooServerUrl;
-	
+
 	private String bambooUsername;
-	
+
 	private String bambooPassword;
-	
+
 	private String bambooProjectName;
-	
+
 	private String bambooProjectKey;
-	
+
 	private String bambooPlanName;
-	
+
 	private String bambooPlanKey;
-	
+
 	private String bambooJobName;
-	
+
 	private String bambooJobKey;
-	
+
 	private String bitbucketProjectKey;
-	
+
 	private String bitbucketRepoName;
-	
+
 	private String bitbucketRepoSlug;
-	
+
 	private String bitbucketRepoBranch;
+
+	private String dockerImageName;
+
+	private String dockerContainerName;
+
+	private String dockerHostPort;
+
+	private String dockerContainerPort;
+
+	public String getDockerImageName() {
+		return dockerImageName;
+	}
+
+	public void setDockerImageName(String dockerImageName) {
+		this.dockerImageName = dockerImageName;
+	}
+
+	public String getDockerContainerName() {
+		return dockerContainerName;
+	}
+
+	public void setDockerContainerName(String dockerContainerName) {
+		this.dockerContainerName = dockerContainerName;
+	}
+
+	public String getDockerHostPort() {
+		return dockerHostPort;
+	}
+
+	public void setDockerHostPort(String dockerHostPort) {
+		this.dockerHostPort = dockerHostPort;
+	}
+
+	public String getDockerContainerPort() {
+		return dockerContainerPort;
+	}
+
+	public void setDockerContainerPort(String dockerContainerPort) {
+		this.dockerContainerPort = dockerContainerPort;
+	}
 
 	public String getBitbucketProjectKey() {
 		return bitbucketProjectKey;
@@ -137,14 +177,15 @@ public class BambooSpecs {
 		this.bambooJobKey = bambooJobKey;
 	}
 
-	public BambooSpecs(){
-		
+	public BambooSpecs() {
+
 	}
-	
+
 	public BambooSpecs(String bambooServerUrl, String bambooUsername, String bambooPassword, String bambooProjectName,
 			String bambooProjectKey, String bambooPlanName, String bambooPlanKey, String bambooJobName,
 			String bambooJobKey, String bitbucketProjectKey, String bitbucketRepoName, String bitbucketRepoSlug,
-			String bitbucketRepoBranch) {
+			String bitbucketRepoBranch, String dockerImageName, String dockerContainerName, String dockerHostPort,
+			String dockerContainerPort) {
 		super();
 		this.bambooServerUrl = bambooServerUrl;
 		this.bambooUsername = bambooUsername;
@@ -159,7 +200,10 @@ public class BambooSpecs {
 		this.bitbucketRepoName = bitbucketRepoName;
 		this.bitbucketRepoSlug = bitbucketRepoSlug;
 		this.bitbucketRepoBranch = bitbucketRepoBranch;
+		this.dockerImageName = dockerImageName;
+		this.dockerContainerName = dockerContainerName;
+		this.dockerHostPort = dockerHostPort;
+		this.dockerContainerPort = dockerContainerPort;
 	}
 
-	
 }
