@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  BambooTrigger } from '../../BambooTrigger';
 import { NgModel } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-confpage',
   templateUrl: './confpage.component.html',
@@ -14,6 +15,7 @@ export class ConfpageComponent implements OnInit {
   ngOnInit() {
   }
   f(){
+    // toastr.info('Hi! I am info message.');
   console.log(this.bambooTrigger.bambooServerUrl);
   console.log( this.bambooTrigger);
   this.http
