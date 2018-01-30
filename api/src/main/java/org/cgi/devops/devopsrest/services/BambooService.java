@@ -47,7 +47,14 @@ public class BambooService {
 				return bambooSpecs.getBambooPassword();
 			}
 		});
-		Plan plan = new BambooService().createPlan(bambooSpecs);
+
+		Plan plan;
+
+		if (bambooSpecs.getDockerContainerName() == "") {
+			plan = new BambooService().createPlanWithDockerCompose(bambooSpecs);
+		} else {
+			plan = new BambooService().createPlan(bambooSpecs);
+		}
 
 		bambooServer.publish(plan);
 
@@ -97,6 +104,32 @@ public class BambooService {
 										.containerEnvironmentVariables(
 												"ENV1=devendra ENV3=sankho ENV4=sankho ENV2=sankho mahi=mahesh WORDPRESS_DB_HOSTURL=gotyaa WORDPRESS_DB_=praneeth"),
 								new ScriptTask().inlineBody("docker ps -a"))))
+				.triggers(new RemoteTrigger());
+	}
+
+	public Plan createPlanWithDockerCompose(BambooSpecs bambooSpecs) {
+		ApplicationLink serverB = new ApplicationLink();
+		serverB.id("3b821e01-2a78-3b85-a77d-902b448a8a5b");
+		serverB.name("Bitbucket");
+		// BitbucketServerRepository repositories = new
+		// BitbucketServerRepository().server(server);
+		return new Plan(project(bambooSpecs), bambooSpecs.getBambooPlanName(), bambooSpecs.getBambooPlanKey())
+				.planRepositories(new BitbucketServerRepository().name(bambooSpecs.getBitbucketRepoName())
+						.server(serverB).projectKey(bambooSpecs.getBitbucketProjectKey())
+						.repositorySlug(bambooSpecs.getBitbucketRepoSlug())
+						.branch(bambooSpecs.getBitbucketRepoBranch()))
+				.description("Plan created from (my desc)").enabled(true)
+				.stages(new Stage("my first stage")
+						.jobs(new Job(bambooSpecs.getBambooJobName(), bambooSpecs.getBambooJobKey()).tasks(
+								new VcsCheckoutTask().cleanCheckout(false).checkoutItems(
+										new CheckoutItem().defaultRepository(),
+										new CheckoutItem().repository(bambooSpecs.getBitbucketRepoName())
+												.path("../../../../Devd/")),
+								new MavenTask().goal("package -DskipTests=true").hasTests(false).version3()
+										.jdk("JDK 1.8").executableLabel("Maven 3"),
+								new DockerBuildImageTask().imageName(bambooSpecs.getDockerImageName())
+										.dockerfileInWorkingDir(),
+								new ScriptTask().inlineBody("docker-compose -f docker-compose.yml up -d"))))
 				.triggers(new RemoteTrigger());
 	}
 
