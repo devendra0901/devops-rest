@@ -198,7 +198,7 @@ var ConfpageComponent = (function () {
         console.log(this.bambooTrigger.bambooServerUrl);
         console.log(this.bambooTrigger);
         this.http
-            .post('http://localhost:8100/v1/bamboospecs/config', this.bambooTrigger)
+            .post('/v1/bamboospecs/config', this.bambooTrigger)
             .subscribe();
         // this._commentService.postComment(this.message).subscribe(
         //    data => console.log(this.responseStatus = data),
