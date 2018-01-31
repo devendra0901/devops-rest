@@ -50,7 +50,7 @@ public class BambooService {
 		
 		Plan plan;
 		
-		if (bambooSpecs.getDockerContainerName().equals("docker-compose")) {
+		if (bambooSpecs.getDockerConfig().equals("true")) {
             plan = new BambooService().createPlanWithDockerCompose(bambooSpecs);
         } else {
             plan = new BambooService().createPlan(bambooSpecs);

@@ -41,6 +41,16 @@ public class BambooSpecs {
 
 	private String dockerContainerPort;
 
+	private String dockerConfig;
+
+	public String getDockerConfig() {
+		return dockerConfig;
+	}
+
+	public void setDockerConfig(String dockerConfig) {
+		this.dockerConfig = dockerConfig;
+	}
+
 	public String getDockerImageName() {
 		return dockerImageName;
 	}
@@ -185,7 +195,7 @@ public class BambooSpecs {
 			String bambooProjectKey, String bambooPlanName, String bambooPlanKey, String bambooJobName,
 			String bambooJobKey, String bitbucketProjectKey, String bitbucketRepoName, String bitbucketRepoSlug,
 			String bitbucketRepoBranch, String dockerImageName, String dockerContainerName, String dockerHostPort,
-			String dockerContainerPort) {
+			String dockerContainerPort, String dockerConfig) {
 		super();
 		this.bambooServerUrl = bambooServerUrl;
 		this.bambooUsername = bambooUsername;
@@ -204,6 +214,7 @@ public class BambooSpecs {
 		this.dockerContainerName = dockerContainerName;
 		this.dockerHostPort = dockerHostPort;
 		this.dockerContainerPort = dockerContainerPort;
+		this.dockerConfig = dockerConfig;
 	}
 
 }
