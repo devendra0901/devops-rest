@@ -47,14 +47,15 @@ public class BambooService {
 				return bambooSpecs.getBambooPassword();
 			}
 		});
-
+		
 		Plan plan;
-
-		if (bambooSpecs.getDockerContainerName() == "") {
-			plan = new BambooService().createPlanWithDockerCompose(bambooSpecs);
-		} else {
-			plan = new BambooService().createPlan(bambooSpecs);
-		}
+		
+		if (bambooSpecs.getDockerContainerName().equals("docker-compose")) {
+            plan = new BambooService().createPlanWithDockerCompose(bambooSpecs);
+        } else {
+            plan = new BambooService().createPlan(bambooSpecs);
+        }
+		
 
 		bambooServer.publish(plan);
 
@@ -77,7 +78,7 @@ public class BambooService {
 
 	public Plan createPlan(BambooSpecs bambooSpecs) {
 		ApplicationLink serverB = new ApplicationLink();
-		serverB.id("3b821e01-2a78-3b85-a77d-902b448a8a5b");
+		serverB.id("583ebe30-b71f-3403-b0d0-1a93c8d6fa69");
 		serverB.name("Bitbucket");
 		// BitbucketServerRepository repositories = new
 		// BitbucketServerRepository().server(server);
@@ -106,10 +107,10 @@ public class BambooService {
 								new ScriptTask().inlineBody("docker ps -a"))))
 				.triggers(new RemoteTrigger());
 	}
-
+	
 	public Plan createPlanWithDockerCompose(BambooSpecs bambooSpecs) {
 		ApplicationLink serverB = new ApplicationLink();
-		serverB.id("3b821e01-2a78-3b85-a77d-902b448a8a5b");
+		serverB.id("583ebe30-b71f-3403-b0d0-1a93c8d6fa69");
 		serverB.name("Bitbucket");
 		// BitbucketServerRepository repositories = new
 		// BitbucketServerRepository().server(server);
@@ -127,8 +128,6 @@ public class BambooService {
 												.path("../../../../Devd/")),
 								new MavenTask().goal("package -DskipTests=true").hasTests(false).version3()
 										.jdk("JDK 1.8").executableLabel("Maven 3"),
-								new DockerBuildImageTask().imageName(bambooSpecs.getDockerImageName())
-										.dockerfileInWorkingDir(),
 								new ScriptTask().inlineBody("docker-compose -f docker-compose.yml up -d"))))
 				.triggers(new RemoteTrigger());
 	}

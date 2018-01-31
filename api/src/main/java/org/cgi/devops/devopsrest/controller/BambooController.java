@@ -22,6 +22,6 @@ public class BambooController {
 	@PostMapping(value = "/config", consumes = { "application/json" })
 	public ResponseEntity<String> postJson(@RequestBody BambooSpecs bambooSpecs) {	
 		this.service.bambooTrigger(bambooSpecs);
-		return new ResponseEntity<String>("Triggered Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<String>("Triggered Successfully", HttpStatus.OK);
 	}
 }
