@@ -187,11 +187,12 @@ var ConfpageComponent = (function () {
         this.bambooTrigger = new __WEBPACK_IMPORTED_MODULE_1__BambooTrigger__["a" /* BambooTrigger */]();
     }
     ConfpageComponent.prototype.ngOnInit = function () {
+        this.enableDockerCompose = false;
     };
     ConfpageComponent.prototype.f = function () {
         // toastr.info('Hi! I am info message.');
         console.log(this.enableDockerCompose);
-        if (this.bambooTrigger == true)
+        if (this.enableDockerCompose)
             this.bambooTrigger.dockerConfig = "true";
         else
             this.bambooTrigger.dockerConfig = "false";
