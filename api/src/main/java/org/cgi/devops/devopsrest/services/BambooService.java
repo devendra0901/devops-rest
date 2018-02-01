@@ -103,7 +103,7 @@ public class BambooService {
 												+ bambooSpecs.getDockerContainerPort() + " --name="
 												+ bambooSpecs.getDockerContainerName())
 										.containerEnvironmentVariables(
-												"ENV1=devendra ENV3=sankho ENV4=sankho ENV2=sankho mahi=mahesh WORDPRESS_DB_HOSTURL=gotyaa WORDPRESS_DB_=praneeth"),
+												"ENV1=DEPLOYED ENV3=here!! ENV4=here!! ENV2=here!! mahi=got WORDPRESS_DB_HOSTURL=APP WORDPRESS_DB_=Your"),
 								new ScriptTask().inlineBody("docker ps -a"))))
 				.triggers(new RemoteTrigger());
 	}
